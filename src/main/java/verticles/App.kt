@@ -7,6 +7,7 @@ fun main(args: Array<String>) {
     val vertx = Vertx.vertx()
 
     vertx.deployVerticle(ProducerVerticle::class.java.name)
+    vertx.deployVerticle(ConsumerVerticle::class.java.name)
 
     vertx.createHttpServer()
         .requestHandler {

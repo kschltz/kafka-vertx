@@ -1,7 +1,7 @@
 package verticles
 
-fun kafkaConfig(): MutableMap<String, Any> {
-    var config = mutableMapOf<String, Any>()
+fun kafkaConfig(): MutableMap<String, String> {
+    val config = mutableMapOf<String, String>()
 
     config["bootstrap.servers"] = "localhost:9092"
     config["key.serializer"] = "org.apache.kafka.common.serialization.StringSerializer"

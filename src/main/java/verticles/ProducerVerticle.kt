@@ -14,7 +14,7 @@ class ProducerVerticle : AbstractVerticle(){
         val consumer = eventBus.consumer<String>(ProducerVerticle::class.java.name)
 
         consumer.handler{
-            val producer = create<String, String>(vertx, kafkaConfig())
+            val producer = create<String, String>(vertx, kafkaConfig() as Map<String, Any>?)
             producer.write(ProducerRecord("strings.test",it.body()))
         }
 
