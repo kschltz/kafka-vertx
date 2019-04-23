@@ -9,6 +9,9 @@ fun kafkaConfig(): MutableMap<String, String> {
     config["value.deserializer"] = "org.apache.kafka.common.serialization.StringDeserializer"
     config["key.deserializer"] = "org.apache.kafka.common.serialization.StringDeserializer"
     config["acks"] = "1"
+    config["group.id"] = "my_group"
+    config["auto.offset.reset"] = "latest"
+    config["enable.auto.commit"] = "false"
     return config
 }
 
