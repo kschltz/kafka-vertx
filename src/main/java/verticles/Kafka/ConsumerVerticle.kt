@@ -5,6 +5,7 @@ import io.vertx.core.Future
 import io.vertx.kafka.client.consumer.KafkaConsumer.create
 import verticles.kafkaConfig
 import verticles.util.logger
+import java.time.LocalTime.now
 
 class ConsumerVerticle : AbstractVerticle() {
 
@@ -14,7 +15,7 @@ class ConsumerVerticle : AbstractVerticle() {
         val consumer = create<String, String>(vertx, kafkaConfig())
 
         consumer.handler {
-            logger().info("Consuming message: ${it.value()}\n\n")
+            logger().info("\nConsuming message: ${it.value()}, time: ${now()}")
         }
         consumer.subscribe("strings.test")
 
